@@ -1,5 +1,7 @@
 import math
 
+# 1
+
 print('Введите коэффициенты a, b и c для уравнения ax^2 + bx + c = 0')
 a = float(input('a = '))
 b = float(input('b = '))
@@ -20,3 +22,16 @@ elif discriminant == 0:
 
 else:
     print('У уравнения нет действительных корней')
+
+# 2 (Площадь треугольника)
+
+print ('Введите длины сторон треугольника a, b и c')
+a = float(input('a = '))
+b = float(input('b = '))
+c = float(input('c = '))
+
+if (c <= a + b) or (b <= a + c) or (a <= b + c):
+    p = (a + b + c) / 2
+    area = math.sqrt(p * (p - a) * (p - b) * (p - c))
+    print('Площадь треугольника: ', area)
+    
