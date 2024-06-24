@@ -42,7 +42,7 @@ def triangle_area():
     b = input_number('b = ')
     c = input_number('c = ')
 
-    if (a + b > c) or (a + c > b) or (b + c > a):
+    if (a + b > c) and (a + c > b) and (b + c > a):
         p = (a + b + c) / 2
         area = math.sqrt(p * (p - a) * (p - b) * (p - c))
         print('Площадь треугольника: ', area)
@@ -68,5 +68,6 @@ def temperature_conversion():
     else:
         print('Неправильный выбор!')
 
-
-
+quadratic_equation()
+triangle_area()
+temperature_conversion()
