@@ -8,7 +8,7 @@ def input_number(number: str) -> float:
             print('Неподходящий тип данных! Введите снова.')
             continue
 
-# 1 Квадратное уравнение
+# 1 (Квадратное уравнение)
 
 def quadratic_equation():
     print('Введите коэффициенты a, b и c для уравнения ax^2 + bx + c = 0')
@@ -48,3 +48,25 @@ def triangle_area():
         print('Площадь треугольника: ', area)
     else:
         print('Треугольник с такими сторонами не может существовать!')
+
+# 3 (Конвертация температуры)
+
+def temperature_conversion():
+    print('Введите номер опции: ')
+    print('1. Конвертировать Цельсий в Фаренгейт')
+    print('2. Конвертировать Фаренгейт в Цельсий')
+    choice = input('')
+
+    if choice == '1':
+        celsius = input_number('Введите температуру в градусах Цельсия: ')
+        fahrenheit = (celsius * 9/5) + 32
+        print('Температура в градусах Фаренгейта: ', fahrenheit)
+    elif choice == '2':
+        fahrenheit = input_number('Введите температуру в градусах Фаренгейта: ')
+        celsius = (fahrenheit - 32) * 5/9
+        print('Температура в градусах Цельсия: ', celsius)
+    else:
+        print('Неправильный выбор!')
+
+
+
