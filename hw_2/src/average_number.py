@@ -6,4 +6,4 @@ def average(numbers):
     for number in numbers:
         total += number
         count += 1
-    return total / count
+    return round((total / count), 1)
