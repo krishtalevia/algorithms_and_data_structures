@@ -6,10 +6,14 @@ calc = Calculator()
 
 @pytest.mark.parametrize('value1, value2, expected_result',
                          [
-                             (5, 5, 10),
-                             (-5, -5, -10),
-                             (5, 50000, 50005),
-                             (5, 0, 5)
+                             (1, 2, 3),
+                             (10, 100, 110),
+                             (50, 50, 100),
+                             (-1, -2, -3),
+                             (-1, 2, 1),
+                             (0, 0, 0),
+                             (-1, 0, -1),
+                             (1, 0, 1)
                          ])
 
 def test_add_positive(value1, value2, expected_result):
@@ -19,7 +23,11 @@ def test_add_positive(value1, value2, expected_result):
 
 @pytest.mark.parametrize('value1, value2, expected_result',
                          [
-                             ('5', '5', pytest.raises(AssertionError))
+                             ('1', 2, pytest.raises(TypeError)),
+                             (None, 2, pytest.raises(TypeError)),
+                             (True, 2, pytest.raises(AssertionError)),
+                             (True, False, pytest.raises(AssertionError)),
+                             ('str', 'str', pytest.raises(AssertionError))
                          ])
 
 def test_add_negative(value1, value2, expected_result):
@@ -30,10 +38,14 @@ def test_add_negative(value1, value2, expected_result):
 
 @pytest.mark.parametrize('value1, value2, expected_result',
                          [
-                             (5, 5, 0),
-                             (-5, -5, 0),
-                             (5, 50000, -49995),
-                             (5, 0, 5)
+                             (1, 2, -1),
+                             (10, 100, -90),
+                             (50, 50, 0),
+                             (-1, -2, 1),
+                             (-1, 2, -3),
+                             (0, 0, 0),
+                             (1, 0, 1),
+                             (-1, 0, -1)
                          ])
 
 def test_subtract_positive(value1, value2, expected_result):
@@ -43,7 +55,7 @@ def test_subtract_positive(value1, value2, expected_result):
 
 @pytest.mark.parametrize('value1, value2, expected_result',
                          [
-                             ('5', '5', pytest.raises(TypeError))
+                             ('1', 1, pytest.raises(TypeError))
                          ])
 
 def test_subtract_negative(value1, value2, expected_result):
@@ -54,10 +66,14 @@ def test_subtract_negative(value1, value2, expected_result):
 
 @pytest.mark.parametrize('value1, value2, expected_result',
                          [
-                             (5, 5, 25),
-                             (-5, -5, 25),
-                             (5, 50000, 250000),
-                             (5, 0, 0)
+                             (1, 2, 2),
+                             (10, 100, 1000),
+                             (50, 50, 2500),
+                             (-1, -2, 2),
+                             (-1, 2, -2),
+                             (0, 0, 0),
+                             (1, 0, 0),
+                             (-1, 0, 0)
                          ])
 
 def test_multiply_positive(value1, value2, expected_result):
@@ -67,7 +83,7 @@ def test_multiply_positive(value1, value2, expected_result):
 
 @pytest.mark.parametrize('value1, value2, expected_result',
                          [
-                             ('5', '5', pytest.raises(TypeError))
+                             ('1', 1, pytest.raises(TypeError))
                          ])
 
 def test_multiply_negative(value1, value2, expected_result):
@@ -78,9 +94,11 @@ def test_multiply_negative(value1, value2, expected_result):
 
 @pytest.mark.parametrize('value1, value2, expected_result',
                          [
-                             (5, 5, 1),
-                             (-5, -5, 1),
-                             (5, 50000, 0.0001)
+                             (1, 2, 0.5),
+                             (100, 10, 10),
+                             (50, 50, 1),
+                             (-1, -2, 0.5),
+                             (-1, 1, -1),
                          ])
 
 def test_divide_positive(value1, value2, expected_result):
@@ -90,11 +108,12 @@ def test_divide_positive(value1, value2, expected_result):
 
 @pytest.mark.parametrize('value1, value2, expected_result',
                          [
-                             ('5', '5', pytest.raises(TypeError)),
-                             (5, 0, pytest.raises(ZeroDivisionError))
+                             (1, 0, pytest.raises(ZeroDivisionError)),
+                             (0, 0, pytest.raises(ZeroDivisionError)),
+                             ("1", 2, pytest.raises(TypeError))
                          ])
 
-def test_multiply_negative(value1, value2, expected_result):
+def test_divide_negative(value1, value2, expected_result):
     global calc
 
     with expected_result:
