@@ -1,5 +1,4 @@
 from classwork_1.src.calculator import Calculator
-
 import pytest
 
 calc = Calculator()
