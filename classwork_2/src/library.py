@@ -11,13 +11,13 @@ class Library:
             for i in range(0, len(self.__books), 1):
                 if self.__books[i] == book:
                     del self.__books[i]
+                    return
 
     def find_book(self, book):
         if book in self.__books:
-            for i in range(0, len(self.__books), 1):
-                if self.__books[i] == book:
-                    return self.__books[i]
-
+            return True
+        else:
+            False
 
 # Легаси код для тестов
 import unittest
@@ -29,22 +29,22 @@ class TestLibrary(unittest.TestCase):
     def test_add_book(self):
         self.library.add_book("Book A")
         self.assertTrue(self.library.find_book("Book A"))
-        self.assertTrue(self.library.find_book("Book B"))
+        self.assertFalse(self.library.find_book("Book B"))
 
     def test_remove_book(self):
         self.library.add_book("Book A")
-        self.library.add_book("Book A")
-        self.library.remove_book("Book A")
-        self.assertTrue(self.library.find_book("Book A"))
+        self.library.add_book("Book B")
         self.library.remove_book("Book A")
         self.assertFalse(self.library.find_book("Book A"))
+        self.library.remove_book("Book B")
+        self.assertFalse(self.library.find_book("Book B"))
         self.library.remove_book("Book B")
 
     def test_find_book(self):
         self.library.add_book("Book A")
         self.assertTrue(self.library.find_book("Book A"))
         self.library.remove_book("Book A")
-        self.assertTrue(self.library.find_book("Book A"))
+        self.assertFalse(self.library.find_book("Book A"))
 
 if __name__ == '__main__':
     unittest.main()
