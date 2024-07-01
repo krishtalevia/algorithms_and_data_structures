@@ -29,3 +29,16 @@ def test_is_palindrome_positive(value, expected_result):
 
 def test_is_palindrome_negative(value, expected_result):
     assert is_palindrome(value) == expected_result
+
+@pytest.mark.parametrize('value, expected_result',
+                         [
+                             (True, pytest.raises(TypeError)),
+                             ([], pytest.raises(TypeError)),
+                             (1, pytest.raises(TypeError)),
+                             (None, pytest.raises(TypeError)),
+                             (1.0, pytest.raises(TypeError))
+                         ])
+
+def test_is_palindrome_types(value, expected_result):
+    with expected_result:
+        assert is_palindrome(value) == expected_result
