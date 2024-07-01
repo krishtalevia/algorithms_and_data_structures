@@ -17,3 +17,13 @@ def test_bank_account_deposit_positive(amount, expected_result):
 
     assert bank_account.get_balance() == expected_result
     bank_account.withdraw(amount)
+
+@pytest.mark.parametrize('amount, expected_result',
+                         [
+                             (0, pytest.raises(ValueError)),
+                             (-10, pytest.raises(ValueError))
+                         ])
+
+def test_bank_account_deposit_negative(amount, expected_result):
+    with expected_result:
+        assert bank_account.deposit(amount) == expected_result
