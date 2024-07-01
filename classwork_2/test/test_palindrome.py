@@ -16,5 +16,16 @@ import pytest
                          ])
 
 def test_is_palindrome_positive(value, expected_result):
+    assert is_palindrome(value) == expected_result
 
+@pytest.mark.parametrize('value, expected_result',
+                         [
+                             ('тук', False),
+                             ('ааба', False),
+                             ('Тут', False),
+                             ('тут?', False),
+                             ('аб', False)
+                         ])
+
+def test_is_palindrome_negative(value, expected_result):
     assert is_palindrome(value) == expected_result
