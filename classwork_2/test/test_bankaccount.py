@@ -41,3 +41,12 @@ def test_bank_account_withdraw_positive(amount, expected_result):
 
     assert bank_account.get_balance() == expected_result
     bank_account.deposit(amount)
+
+@pytest.mark.parametrize('amount, expected_result',
+                         [
+                             (1001, pytest.raises(ValueError))
+                         ])
+
+def test_bank_account_withdraw_negative(amount, expected_result):
+    with expected_result:
+        assert bank_account.withdraw(amount) == expected_result
