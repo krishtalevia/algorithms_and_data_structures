@@ -26,5 +26,3 @@ def is_list_valid(list: list) -> bool:
             return False
 
     return True
-
-print(even_sum(['']))
