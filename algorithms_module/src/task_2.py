@@ -1,4 +1,4 @@
-def find_most_frequency_occuring_element(list: list) -> int:
+def most_frequency_occuring_element(list: list) -> int:
     if not is_list_valid(list):
         raise Exception('Ошибка!')
 
