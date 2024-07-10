@@ -5,7 +5,7 @@ def target_sum(list: list, target: int) -> list:
     for i in range(0, len(list), 1):
         for j in range(i + 1, len(list), 1):
             if (list[i] + list[j]) == target:
-                return [i, j]
+                return [i,j]
 
     raise Exception('Ошибка!')
 
