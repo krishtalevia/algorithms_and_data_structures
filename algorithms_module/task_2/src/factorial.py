@@ -8,7 +8,7 @@ def factorial(n: int) -> int:
 
     return result
 
-def is_n_valid(n: int) -> int:
+def is_n_valid(n: int) -> None:
     if not isinstance(n, int): raise TypeError()
 
     if n <= 0 or n >= 20: raise ValueError()
