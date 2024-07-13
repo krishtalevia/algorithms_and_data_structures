@@ -1,7 +1,6 @@
 import pytest
 from algorithms_module.task_2.src.factorial import factorial
 
-
 @pytest.mark.parametrize('value, expected_result',
                          [
                              (1, 1),

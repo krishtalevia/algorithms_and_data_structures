@@ -1,7 +1,6 @@
 import pytest
 from algorithms_module.task_2.src.palindrome import palindrome
 
-
 @pytest.mark.parametrize('value, expected_result',
                          [
                              (12321, True),
