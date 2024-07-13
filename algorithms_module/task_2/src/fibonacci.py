@@ -20,3 +20,4 @@ def is_n_valid(n: int) -> None:
 
     if n < 0: raise ValueError()
 
+print(fibonacci(5))

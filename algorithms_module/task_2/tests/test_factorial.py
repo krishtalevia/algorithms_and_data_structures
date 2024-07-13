@@ -7,7 +7,6 @@ from algorithms_module.task_2.src.factorial import factorial
                              (1, 1),
                              (5, 120),
                              (8, 40320)
-
                          ])
 
 def test_factorial_positive(value, expected_result):
