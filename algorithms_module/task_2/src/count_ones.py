@@ -15,4 +15,3 @@ def is_n_valid(n: int) -> None:
     if not isinstance(n, int): raise TypeError()
 
     if n <= 0: raise ValueError()
-    
