@@ -89,5 +89,6 @@ def main():
     data = read_data('data.txt')
     data = expend_data_with_days(data)
     print(max_day(data))
+    print(max_month(data))
 
 main()
