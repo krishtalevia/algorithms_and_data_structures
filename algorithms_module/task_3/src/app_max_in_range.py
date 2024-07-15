@@ -47,18 +47,17 @@ class App:
 
         main_frame.pack()
 
-    def on_click_solver_button_handler(self):
-        text = self.user_input_ui.get()
-
-        if text == "":
-            print("error!")
-            return
-
-        result = count_ones(int(text))
-
-        print(result)
-
-self.output_result.config(text=str(result))
+#     def on_click_solver_button_handler(self):
+#         text = self.user_input_ui.get()
+#
+#         if text == "":
+#             print("error!")
+#             return
+#         result =
+#
+#         print(result)
+#
+# self.output_result.config(text=str(result))
 
 
 def main():
