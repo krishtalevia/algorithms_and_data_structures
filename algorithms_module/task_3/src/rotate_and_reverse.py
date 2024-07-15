@@ -1,4 +1,6 @@
 def rotate_and_reverse(array: list[int or float], k: int) -> list:
+    is_list_valid(array)
+
     length = len(array)
 
     for i in range(k):
