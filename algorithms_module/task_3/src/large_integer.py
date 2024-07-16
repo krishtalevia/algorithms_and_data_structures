@@ -1,5 +1,8 @@
-def large_integer_plus_one(digits: list) -> list:
+def large_integer(digits: list) -> list:
     is_list_valid(digits)
+
+    if len(digits) == 0:
+        return []
 
     if digits[-1] != 9:
         digits[-1] += 1
@@ -20,10 +23,12 @@ def large_integer_plus_one(digits: list) -> list:
     return digits
 
 def is_list_valid(digits: list) -> None:
+    if not isinstance(digits, list): raise TypeError()
+
     if len(digits) < 1 or len(digits) > 100: raise ValueError()
 
     for i in digits:
-        if not isinstance(i, int): raise ValueError()
+        if not isinstance(i, int): raise TypeError()
 
         if i < 0 or i > 9: raise ValueError()
 
