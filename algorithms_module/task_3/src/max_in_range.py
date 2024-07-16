@@ -22,3 +22,6 @@ def is_request_valid(lst: list[int or float], start, end) -> None:
     if start < 0 or start > len(lst): raise ValueError()
     if end < 0 or end > len(lst): raise ValueError()
     if start > end: raise ValueError()
+
+lst = '1, 2, 3, 4, 5, 6'
+print(lst.split(','))
