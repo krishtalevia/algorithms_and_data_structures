@@ -6,7 +6,7 @@ def max_in_range(lst: list[int or float], start: int, end: int) -> list:
     relative_index = 0
 
     for i in range(start, end + 1, 1):
-        if lst[i] > max:
+        if lst[i] > max_value:
             max_value = lst[i]
             absolute_index = i
             relative_index = i - start
