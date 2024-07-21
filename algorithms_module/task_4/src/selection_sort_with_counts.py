@@ -1,7 +1,9 @@
-def selection_sort(array: list[any], key=lambda x: x, order_by=lambda x, y: x >y) -> list[any]:
+def selection_sort_with_counts(array: list[any], key=lambda x: x, order_by=lambda x, y: x >y) -> list[any]:
     assert isinstance(array, list), TypeError()
 
     length = len(array)
+    comparisons = 0
+    swaps = 0
 
     if length == 0:
         return []
@@ -15,7 +17,9 @@ def selection_sort(array: list[any], key=lambda x: x, order_by=lambda x, y: x >y
         for j in range(i+1, length, 1):
             if order_by(key(array[imin]), key(array[j])):
                 imin = j
+                comparisons += 1
 
         array[i], array[imin] = array[imin], array[i]
+        swaps += 1
 
-    return array
+    return array, comparisons, swaps
