@@ -1,5 +1,5 @@
 def bubble_sort(array: list[any], key=lambda x: x, order_by=lambda x, y: x > y) -> list[any]:
-    assert isinstance(array, list), TypeError('')
+    assert isinstance(array, list), TypeError()
 
     length = len(array)
 
