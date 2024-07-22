@@ -109,3 +109,11 @@ class DList:
 
     def __get_count(self):
         return self.__count
+
+    def __str__(self):
+        array_str = ''
+
+        for i in range(0, self.__count, 1):
+            array_str += str(self.__array_memory[i]) + ", "
+
+        return f'[{array_str}]'
