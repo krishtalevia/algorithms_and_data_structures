@@ -1,5 +1,5 @@
 def sum_of_digits(n: int) -> int:
-    assert isinstance(n, int), TypeError
+    assert isinstance(n, int), TypeError()
 
     s = str(n)
 

@@ -3,6 +3,7 @@ def malloc(memory: int, size=1) -> list:
 
     return [None] * size
 
+
 class DList:
 
     def __init__(self, n: int or list[any]):
@@ -30,16 +31,43 @@ class DList:
         self.__count += 1
 
     def add_front(self, item: any):
-        pass
+        if self.__count >= self.__size:
+            self.__realloc()
 
-    def remove(self, index: int) -> bool:
-        pass
+        for i in range(self.__count, 0, -1):
+            self.__array_memory[i] = self.__array_memory[i - 1]
 
-    def remove_of_index(selfi, index: int):
-        pass
+        self.__array_memory[0] = item
+        self.__count += 1
+        return True
 
-    def find(self, item: any):
-        pass
+    def remove(self, item: any) -> None:
+        for i in range(0, self.__count, 1):
+            if self.__array_memory[i] == item:
+                for j in range(i, self.__count - 1, 1):
+                    self.__array_memory[j] = self.__array_memory[j + 1]
+
+                self.__count -= 1
+                return True
+
+        raise ValueError()
+
+    def remove_of_index(self, index: int) -> bool:
+        assert index >= 0 or index < self.__count, ValueError()
+
+        for i in range(index, self.__count - 1, 1):
+            self.__array_memory[i] = self.__array_memory[i + 1]
+
+        self.__count -= 1
+        return True
+
+    def find(self, item: any) -> int:
+
+        for i in range(0, self.__count, 1):
+            if self.__array_memory[i] == item:
+                return i
+
+        return -1
 
     def insert_to_index(self, item: any, index: int) -> bool:
         assert index >= 0, ValueError()
@@ -59,9 +87,13 @@ class DList:
             self.__array_memory[i] = self.__array_memory[i - 1]
 
         self.__array_memory[index] = item
+        self.__count += 1
 
     def is_empty(self):
-        pass
+        if self.__count == 0:
+            return True
+
+        return False
 
     def __realloc(self):
         self.__size = self.__size + (self.__size // 2)
