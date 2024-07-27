@@ -1,4 +1,4 @@
-def is_palindrome(text) -> bool:
+def is_palindrome(text: str) -> bool:
     assert isinstance(text, str), TypeError()
 
     if len(text) <= 1:
