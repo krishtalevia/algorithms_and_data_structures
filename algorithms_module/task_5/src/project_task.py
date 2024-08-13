@@ -15,7 +15,7 @@ class ProjectTask:
 
 class Node:
 
-    def __init__(self, task: ProjectTask, ):
+    def __init__(self, task: ProjectTask):
         self.task = task
         self.next = None
 
