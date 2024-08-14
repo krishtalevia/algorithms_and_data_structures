@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from typing import List, Any
+
+
 class Node:
     def __init__(self, data: any):
         self.data = data
@@ -11,13 +14,32 @@ class Stack:
         self.__size = 0
 
     def push(self, data: any) -> None:
-        pass
+        new_node = Node(data)
+        new_node.next = self.__top
+        self.__top = new_node
+        self.__size += 1
 
     def pop(self) -> any:
-        pass
+        if self.__size == 0:
+            return None
+        else:
+            removed_node = self.__top.task
+            self.__top = self.__top.next
+            self.__size -= 1
+            return removed_node
 
     def peek(self) -> any:
-        pass
+        if self.__size == 0:
+            return None
+        else:
+            return self.__top.data
 
-    def __str__(self) -> str:
-        pass
+    def __str__(self) -> list[any]:
+        nodes = []
+
+        iterator = self.__top
+        while iterator.next is not None:
+            nodes.append(iterator)
+            iterator = iterator.next
+
+        return nodes
