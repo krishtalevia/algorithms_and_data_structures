@@ -81,7 +81,7 @@ class LinkedList:
             count += 1
             iterator = iterator.next
         return count
-        
+
     def is_empty(self) -> bool:
         return True if self.__count == 0 else False
 
