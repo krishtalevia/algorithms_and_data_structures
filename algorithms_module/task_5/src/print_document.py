@@ -1,16 +1,19 @@
 from __future__ import annotations
 
+
 class PrintDocument:
 
     def __init__(self, title: str, number_of_pages: int):
         self.__title = title
         self.__number_of_pages = number_of_pages
 
+
 class Node:
 
     def __init__(self, data: PrintDocument, prev=None):
         self.data = data
         self.prev = prev
+
 
 class PrintQueue:
 
