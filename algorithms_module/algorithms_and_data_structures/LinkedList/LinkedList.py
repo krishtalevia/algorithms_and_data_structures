@@ -31,6 +31,7 @@ class LinkedList:
         new_node = Node(item)
         new_node.next = self.__head
         self.__head = new_node
+        self.__count += 1
 
     def remove(self, item: any) -> bool:
         if self.__count == 0:
@@ -71,7 +72,7 @@ class LinkedList:
         new_node.next = iterator.next
         iterator.next = new_node
 
-    def count(self, item: any) -> int:
+    def count(self) -> int:
         if self.__head is None:
             return 0
 
@@ -81,9 +82,6 @@ class LinkedList:
             count += 1
             iterator = iterator.next
         return count
-
-    def is_empty(self) -> bool:
-        return True if self.__count == 0 else False
 
     def clear(self):
         self.__head = None
