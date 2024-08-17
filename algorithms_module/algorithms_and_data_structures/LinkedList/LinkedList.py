@@ -64,12 +64,8 @@ class LinkedList:
             return True
 
         iterator = self.__head
-        count = 0
-
-        while iterator.data is not None and count < self.__count -1:
+        for i in range(position -1):
             iterator = iterator.next
-            count += 1
-
         new_node.next = iterator.next
         iterator.next = new_node
 
@@ -87,6 +83,9 @@ class LinkedList:
     def clear(self):
         self.__head = None
         self.__count = 0
+
+    def get_head(self):
+        return self.__head
 
     def __str__(self):
         elements = []
