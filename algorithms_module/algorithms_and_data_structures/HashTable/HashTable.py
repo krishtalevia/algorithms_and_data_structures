@@ -29,7 +29,10 @@ class HashTable:
 
     def delete(self, key: any) -> None:
         hash = self.__hash(key)
-        if self.__table(hash) is None:
+        if self.__table[hash] is None:
             raise Exception('Ключ не найден!')
 
         del self.__table[hash]
+
+    def __str__(self) -> str:
+        return str(self.__table)
