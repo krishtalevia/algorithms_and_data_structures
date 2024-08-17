@@ -64,15 +64,18 @@ class DoubleLinkedList:
 
             iterator = iterator.next
 
-    def find(self, data: any) -> Node:
+    def find(self, data: any) -> bool:
         iterator = self.__head
 
         while iterator is not None:
             if iterator.data == data:
-                return iterator
+                return True
             iterator = iterator.next
 
-        return None
+        return False
+
+    def get_head(self):
+        return self.__head
 
     def __str__(self) -> str:
         elements = []
