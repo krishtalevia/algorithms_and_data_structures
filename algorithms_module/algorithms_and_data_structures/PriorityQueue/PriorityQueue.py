@@ -12,8 +12,9 @@ class PriorityQueue:
 
     def is_empty(self) -> bool:
         if self.__head is None:
-            return False
-        return True
+            return True
+
+        return False
 
     def enqueue(self, data: any, priority: int) -> None:
         new_node = Node(data, priority)
