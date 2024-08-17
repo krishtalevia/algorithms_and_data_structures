@@ -48,6 +48,9 @@ class Queue:
     def get_count(self) -> int:
         return self.__count
 
+    def get_head(self) -> any:
+        return self.__head
+
     def __str__(self) -> str:
         elements = []
         iterator = self.__head
