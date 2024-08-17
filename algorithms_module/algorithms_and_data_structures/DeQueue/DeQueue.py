@@ -6,16 +6,16 @@ class Node:
         self.prev = None
         self.next = None
 
-class Dequeue:
+class DeQueue:
     def __init__(self) -> None:
         self.__head = None
         self.__tail = None
 
     def is_empty(self) -> bool:
         if self.__head is None:
-            return False
+            return True
 
-        return True
+        return False
 
     def add_front(self, data: any) -> None:
         new_node = Node(data)

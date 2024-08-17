@@ -11,6 +11,7 @@ def test_is_empty(elements, expected_result):
     q = Queue()
     for i in elements:
         q.enqueue(i)
+
     assert q.is_empty() == expected_result
 
 @pytest.mark.parametrize('elements, enqueue_el, expected_result',
