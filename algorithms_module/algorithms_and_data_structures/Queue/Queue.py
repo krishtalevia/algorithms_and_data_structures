@@ -47,3 +47,11 @@ class Queue:
 
     def get_count(self) -> int:
         return self.__count
+
+    def __str__(self) -> str:
+        elements = []
+        iterator = self.__head
+        while iterator is not None:
+            elements.append(str(iterator.data))
+            iterator = iterator.next
+        return ' <- '.join(elements)
