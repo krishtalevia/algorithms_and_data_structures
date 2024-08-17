@@ -13,6 +13,12 @@ class Stack:
         self.__top = None
         self.__size = 0
 
+    def is_empty(self) -> bool:
+        if self.__size == 0:
+            return True
+
+        return False
+
     def push(self, data: any) -> None:
         new_node = Node(data)
         new_node.next = self.__top
@@ -23,7 +29,7 @@ class Stack:
         if self.__size == 0:
             return None
         else:
-            removed_node = self.__top.task
+            removed_node = self.__top.data
             self.__top = self.__top.next
             self.__size -= 1
             return removed_node
