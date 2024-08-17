@@ -11,28 +11,30 @@ class HashTable:
         return first_hash % self.__size
 
     def add(self, key: any, value: any) -> None:
-        hash = self.__hash(key)
-        print(f'HASHMAP:ADD:HASH:{hash}')
+        hash_index = self.__hash(key)
+        print(f'HASHMAP:ADD:HASH:{hash_index}')
 
-        if not (self.__table[hash] is None):
-            print(f'HASHMAP:ADD:COLLISION:{hash}')
+        if self.__table[hash_index] is not None:
+            print(f'HASHMAP:ADD:COLLISION:{hash_index}')
             return
 
-        self.__table[hash] = value
+        self.__table[hash_index] = value
+        self.__count += 1
 
     def get(self, key: any) -> any:
-        hash = self.__hash(key)
-        if self.__table[hash] is None:
-            raise Exception('Ключ не найден!')
+        hash_index = self.__hash(key)
+        if self.__table[hash_index] is None:
+            raise KeyError('Ключ не найден!')
 
-        return self.__table[hash]
+        return self.__table[hash_index]
 
     def delete(self, key: any) -> None:
-        hash = self.__hash(key)
-        if self.__table[hash] is None:
-            raise Exception('Ключ не найден!')
+        hash_index = self.__hash(key)
+        if self.__table[hash_index] is None:
+            raise KeyError('Ключ не найден!')
 
-        del self.__table[hash]
+        del self.__table[hash_index]
+        self.__count -= 1
 
     def __str__(self) -> str:
         return str(self.__table)
