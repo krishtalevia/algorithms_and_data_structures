@@ -24,9 +24,9 @@ class DoubleLinkedList:
             self.__head = new_node
             self.__tail = new_node
         else:
-            new_node.next = self.__head
-            self.__head.prev = new_node
-            self.__head = new_node
+            self.__tail.next = new_node
+            new_node.prev = self.__tail
+            self.__tail = new_node
 
         self.__count += 1
 
@@ -36,16 +36,16 @@ class DoubleLinkedList:
             self.__head = new_node
             self.__tail = new_node
         else:
-            new_node.prev = self.__tail
-            self.__tail.next = new_node
-            self.__tail = new_node
+            new_node.next = self.__head
+            self.__head.prev = new_node
+            self.__head = new_node
 
         self.__count += 1
 
-    def remove(self, data: any) -> None:
+    def remove(self, data: any) -> bool:
         iterator = self.__head
 
-        while iterator.next is not None:
+        while iterator is not None:
             if iterator.data == data:
                 if iterator == self.__head:
                     self.__head = iterator.next
@@ -59,16 +59,25 @@ class DoubleLinkedList:
                     iterator.prev.next = iterator.next
                     iterator.next.prev = iterator.prev
 
-                return
+                self.__count -= 1
+                return True
 
             iterator = iterator.next
 
     def find(self, data: any) -> Node:
         iterator = self.__head
 
-        while iterator.next is not None:
+        while iterator is not None:
             if iterator.data == data:
                 return iterator
             iterator = iterator.next
 
         return None
+
+    def __str__(self) -> str:
+        elements = []
+        iterator = self.__head
+        while iterator is not None:
+            elements.append(str(iterator.data))
+            iterator = iterator.next
+        return ' <-> '.join(elements)
