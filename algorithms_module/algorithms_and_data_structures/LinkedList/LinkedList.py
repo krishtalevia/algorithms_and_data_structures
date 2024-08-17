@@ -12,20 +12,20 @@ class LinkedList:
 
     def is_empty(self) -> bool:
         if self.__count == 0:
-            return False
+            return True
 
-        return True
+        return False
 
     def add_back(self, item: any) -> None:
         new_node = Node(data=item)
         if self.__count == 0:
             self.__head = new_node
-            self.__count += 1
         else:
             iterator = self.__head
-            while not (iterator is None):
+            while not (iterator.next is None):
                 iterator = iterator.next
             iterator.next = new_node
+        self.__count += 1
 
     def add_front(self, item: any) -> None:
         new_node = Node(item)
@@ -37,19 +37,20 @@ class LinkedList:
         if self.__count == 0:
             return False
 
+        if self.__head.data == item:
+            self.__head = self.__head.next
+            self.__count -= 1
+            return True
+
         iterator = self.__head
-        iterator_prev = None
-
-        while iterator.data != item and not (iterator.next is None):
-            iterator_prev = iterator
-            iterator = iterator.next
-
-            if iterator.data == item:
-                iterator_prev.next = iterator.next
+        while iterator.next is not None:
+            if iterator.next.data == item:
+                iterator.next = iterator.next.next
                 self.__count -= 1
                 return True
+            iterator = iterator.next
 
-            return False
+        return False
 
     def insert_by_position(self, item: any, position: int) -> bool:
         if position > self.__count or position < 0:
@@ -86,3 +87,11 @@ class LinkedList:
     def clear(self):
         self.__head = None
         self.__count = 0
+
+    def __str__(self):
+        elements = []
+        iterator = self.__head
+        while iterator is not None:
+            elements.append(str(iterator.data))
+            iterator = iterator.next
+        return ' -> '.join(elements)
