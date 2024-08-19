@@ -2,10 +2,9 @@ from __future__ import annotations
 
 class DateTime:
 
-    def __init__(self, day: int, month: int, year: int):
+    def __init__(self, day: int, month: int):
         self.__day = day
         self.__month = month
-        self.__year = year
 
 class ProjectTask:
 
@@ -26,9 +25,9 @@ class TaskStack:
         self.__size = 0
 
     def push(self, task: ProjectTask):
-        node = Node(task)
-        node.next = self.__top
-        self.__top = node
+        new_node = Node(task)
+        new_node.next = self.__top
+        self.__top = new_node
         self.__size += 1
 
     def pop(self):

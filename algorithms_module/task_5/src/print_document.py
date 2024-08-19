@@ -24,14 +24,14 @@ class PrintQueue:
         self.__count = 0
 
     def enqueue(self, document: PrintDocument) -> None:
-        node = Node(data=document, prev=None)
+        new_node = Node(data=document, prev=None)
 
         if self.is_empty():
-            self.__head = node
+            self.__head = new_node
         else:
-            self.__tail.prev = node
+            self.__tail.prev = new_node
 
-        self.__tail = node
+        self.__tail = new_node
 
         self.__count += 1
 

@@ -20,23 +20,23 @@ class PersonList:
         self.__count = 0
 
     def add_person(self, item: PersonCard) -> None:
-        node = Node(person_card=item, next=self.__head)
-        self.__head == node
+        new_node = Node(person_card=item, next=self.__head)
+        self.__head == new_node
         self.__count += 1
 
     def append_person(self, item: PersonCard) -> None:
-        node = Node(person_card=item, next=None)
+        new_node = Node(person_card=item, next=None)
 
         self.__count += 1
 
         if self.__count == 0:
-            self.__head = node
+            self.__head = new_node
             return
 
         iterator = self.__head
         while not (iterator.next is None):
             iterator = iterator.next
-        iterator.next = node
+        iterator.next = new_node
 
     def insert_person_at(self, index: int, item: PersonCard):
         if index < 0 or index > self.__count:
@@ -46,14 +46,14 @@ class PersonList:
             self.add_person(item)
             return True
 
-        node = Node(person_card=item)
+        new_node = Node(person_card=item)
         iterator = self.__head
 
         for i in range(0, index - 1, 1):
             iterator = iterator.next
 
-        node.next = iterator.next
-        iterator.next = node
+        new_node.next = iterator.next
+        iterator.next = new_node
         self.__count += 1
         return True
 
